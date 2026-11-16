@@ -125,7 +125,7 @@ export function createWorld(scene) {
   }
 
   // Light: a low dusk sun from the west, a cool fill from the east, sky gradient.
-  const sky = new THREE.HemisphereLight(new THREE.Color('#3a3f4a'), new THREE.Color(PALETTE.canvas), 1.0);
+  const sky = new THREE.HemisphereLight(new THREE.Color('#3a3f4a'), new THREE.Color(PALETTE.canvas), 1.35);
   scene.add(sky);
 
   const key = new THREE.DirectionalLight(new THREE.Color('#ffb45e'), 2.4);
@@ -141,7 +141,7 @@ export function createWorld(scene) {
   key.shadow.bias = -0.0006;
   scene.add(key, key.target);
 
-  const fill = new THREE.DirectionalLight(new THREE.Color(PALETTE.muted), 0.6);
+  const fill = new THREE.DirectionalLight(new THREE.Color(PALETTE.muted), 0.8);
   fill.position.set(14, 10, 12);
   scene.add(fill);
 

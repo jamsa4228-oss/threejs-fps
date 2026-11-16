@@ -519,15 +519,17 @@ function runShot(name) {
     b1.body.teleport(-5, 0, -6);
     b1.body.state.yaw = Math.PI * 0.75;
     settle(20);
-    aimAt(bots.aimPoint(0));
+    // Re-aim before every shot: the defenders strafe while engaging, so a
+    // stale aim point would miss. Three rifle body hits drop one.
     for (let round = 0; round < 3; round += 1) {
+      aimAt(bots.aimPoint(0));
       shoot(0);
       settle(6);
     }
     settle(10);
     aimAt(bots.aimPoint(1));
     shoot(0);
-    settle(2);
+    settle(8); // let the muzzle flash clear before the capture freezes
   } else if (name === 'end') {
     game.startMatch();
     game.beginLive();
